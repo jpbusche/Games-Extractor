@@ -1,5 +1,6 @@
 require 'elasticsearch'
 require 'yaml'
+require_relative 'utils'
 
 config = YAML.load_file('config.yml')['elastic_config']
 client = Elasticsearch::Client.new host: config['host_name'], log: 'true'
@@ -28,3 +29,5 @@ client.indices.put_mapping index: config['index_name'], type: config['type_name'
 		}
 	}
 }
+all_ids = Utils.get_all_ids
+puts all_ids
