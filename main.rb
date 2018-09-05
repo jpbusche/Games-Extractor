@@ -29,5 +29,8 @@ client.indices.put_mapping index: config['index_name'], type: config['type_name'
 		}
 	}
 }
+# Inserção inicial no Elasticsearch
 all_ids = Utils.get_all_ids
-puts all_ids
+all_ids.each do |app|
+	client.index index: config['index_name'], type: config['type_name'], id: app['steam_id'], body: app.to_json
+end
