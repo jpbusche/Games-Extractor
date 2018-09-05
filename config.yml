@@ -1,0 +1,4 @@
+elastic_config:
+  host_name: "http://localhost:9200"
+  index_name: "steam_games"
+  type_name: "game"
